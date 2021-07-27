@@ -1,0 +1,25 @@
+1. CREATE TABLE latihan_2 (
+    -> `Nama Kota` VARCHAR(100),
+    -> Kecamatan INT,
+    -> Kelurahan INT,
+    -> `Luas Wilayah (km2)` INT,
+    -> `Jumlah Penduduk` INT);
+2. INSERT latihan_2 VALUES
+    -> ('Jakarta',44,267,664.01,9988495),
+    -> ('Surabaya', 31, 154, 350.54, 2805906),
+    -> ('Medan', 21, 151, 265.00, 2465469),
+    -> ('Bekasi', 12, 56, 206.61, 2381053),
+    -> ('Makassar', 14, 143, 199.26, 1651146),
+    -> ('Depok', 11, 63, 200.29, 1631951),
+    -> ('Semarang', 16, 177, 373.78, 1621384);
+3.  INSERT latihan_2 SET `Nama Kota`="Tangerang", Kecamatan=13, Kelurahan=104,
+    `Luas Wilayah (km2)`=153.93, `Jumlah Penduduk`=1566190;
+    INSERT latihan_2 SET `Nama Kota`="Palembang", Kecamatan=14, Kelurahan=107,
+    `Luas Wilayah (km2)`=369.22, `Jumlah Penduduk`=1548064;
+4.  CREATE TABLE soal_4 LIKE latihan_2;
+5.  ALTER TABLE soal_4
+    -> DROP COLUMN Kecamatan,
+    -> DROP COLUMN Kelurahan,
+    -> DROP COLUMN IF EXISTS `Luas Wilayah (km2)`;
+6.  INSERT INTO soal_4 (`Nama Kota`, `Jumlah Penduduk`)
+    -> SELECT `Nama Kota`, `Jumlah Penduduk` FROM latihan_2;
